@@ -26,4 +26,7 @@ Route::group([
     Route::post('me', 'AuthController@me');
 });
 
-Route::any('user', 'UserController@index');
+Route::any('user', 'UserController@index')->middleware('role:test');
+Auth::routes();
+
+Route::any('/home', 'HomeController@index')->name('home');

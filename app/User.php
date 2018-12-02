@@ -17,6 +17,8 @@ class User extends Authenticatable implements JWTSubject
 
     protected $table = 'users';
 
+    protected $guarded = [];
+
     // Rest omitted for brevity
 
     /**
@@ -43,5 +45,9 @@ class User extends Authenticatable implements JWTSubject
     public function posts(){
 
         return $this->hasMany(\App\Posts::class,'uid','id');
+    }
+
+    public function hasRole($role){
+        echo 1;exit;
     }
 }

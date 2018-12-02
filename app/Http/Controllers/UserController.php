@@ -13,15 +13,16 @@ class UserController extends Controller
 
     public function __construct()
     {
-        //$this->middleware('role:editor');
+       // $this->middleware('role');
     }
 
     public function index(Request $request,User $user){
        /* $res = $user::with(['posts'],function ($query){
             $query->where('uid',49);
         });*/
-       $res = $user::find(20)->posts;
-        $res = $user::findOrFail(51);
+
+       $res = $user::find(20);
+
         dd($res);
        return response()->json(['123']);
     }

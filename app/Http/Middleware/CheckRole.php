@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Filesystem\Cache;
 
 class CheckRole
 {
@@ -16,7 +17,11 @@ class CheckRole
     public function handle($request, Closure $next,$role)
     {
 
-        dd($request);
+        if (!$request->user()->hasRole($role)) {
+
+        }
         return $next($request);
     }
+
+
 }
