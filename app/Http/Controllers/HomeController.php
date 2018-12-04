@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**˙
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
     /**
@@ -24,7 +29,14 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-
-        return view('home');
+       $request->session()->put('test','123');
+        session('test','123');
+//$request->session()->push('user.teams', 'developers');
+        //$request->session()->flash('status', 'Task was successful!');
+       // dd(session()->getId(),session()->all());
+        //return view('home');
     }
+
+
+
 }

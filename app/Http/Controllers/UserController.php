@@ -21,9 +21,8 @@ class UserController extends Controller
             $query->where('uid',49);
         });*/
 
-       $res = $user::find(20);
 
-        dd($res);
-       return response()->json(['123']);
+        return $request->session()->get('name');
+
     }
 }
