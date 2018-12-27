@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::post('login', 'AuthController@login');
 Route::post('me', 'AuthController@me');
@@ -32,5 +32,8 @@ Auth::routes();
 //Route::any('/home', 'HomeController@index')->name('home');
 
 
-Route::any('/test', 'HomeController@index')->middleware('role:test','web');
+Route::any('/', 'HomeController@index');
+Route::any('testrule', 'HomeController@testRules');
+Route::any('log', 'HomeController@log');
+Route::any('collection','HomeController@collection');
 
