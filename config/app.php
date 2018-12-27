@@ -161,8 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Illuminate\Myfacade\MyfacadeServiceProvider::class,
-        App\Facades\TestProvider::class,
+        App\Providers\FacadesServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,8 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Myfacade' =>Illuminate\Support\Facades\Myfacade::class,
-        'Test' =>App\Facades\Test::class,
+        'OpRedis'=>App\Facades\Redis\Facade\Redis::class,
+        'Test'=>App\Facades\Test\Facade\Test::class,
 
 
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,

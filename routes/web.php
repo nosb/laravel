@@ -36,4 +36,5 @@ Route::any('/', 'HomeController@index');
 Route::any('testrule', 'HomeController@testRules');
 Route::any('log', 'HomeController@log');
 Route::any('collection','HomeController@collection');
+Route::any('facades','HomeController@myFacades');
 

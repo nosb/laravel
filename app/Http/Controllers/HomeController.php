@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Myfacade;
-Use Test;
-use App\Rules\Testrule;
 use Validator;
 use Auth;
 use Illuminate\Support\Facades\Log;
+use Test;
+use OpRedis;
+
 
 
 /**˙
@@ -90,7 +90,16 @@ class HomeController extends Controller
 
         });
 
-        dd($result);
+        Test::getOne();
+        echo  Test::show();
+
+    }
+
+
+    public function myFacades(){
+
+       $res = OpRedis::setUserInfo(1,'2222');
+       dd($res);
 
     }
 
