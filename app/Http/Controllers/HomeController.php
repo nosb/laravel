@@ -35,6 +35,25 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+
+
+        $url = "http://ip.taobao.com/service/getIpInfo.php?ip={$ip}";
+        $ret = https_request($url);
+        $url = 'http://ip.taobao.com/service/getIpInfo.php';
+        $post_data = [
+            'ip'=>'119.96.149.112',
+        ];
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        echo $output;exit;
+
+
+
         //Myfacade::readString();
         //Test::getOne();
         //return Auth::getDefaultDriver();

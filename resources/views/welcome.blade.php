@@ -94,5 +94,30 @@
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script>
+
+      var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjEuNVwvbG9naW4iLCJpYXQiOjE1NDYwNTYwMDAsImV4cCI6MTU0NjA1OTYwMCwibmJmIjoxNTQ2MDU2MDAwLCJqdGkiOiJSUzVGZHJrNGcwRUlPMmJ3Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.jOvaQvvzbghBk2bXYla6S3rkcpqlMj7n9N5Hniu_URA';
+
+      $.ajax({
+          url: 'http://192.168.1.5/user/getbank',
+          type: 'get',
+          data: {},
+          async: true, //异步
+          cache: false,
+          dataType: 'json',
+          headers:{"Authorization":"Bearer "+token},
+          success: function(res){
+             console.log(res);
+          },
+          error: function(res){
+              console.log(1);
+          },
+          beforeSend: function () {
+
+          },
+      });
+    </script>
     </body>
 </html>
