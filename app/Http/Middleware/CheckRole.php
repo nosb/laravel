@@ -14,10 +14,9 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$role)
+    public function handle($request, Closure $next)
     {
-        $request->myRole = $role;
-
+        echo 1;exit;
        // $request->session()->put('name','111111');
       //  session(['test'=>'1111111']);
         return $next($request);

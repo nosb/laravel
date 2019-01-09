@@ -35,11 +35,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+echo 1;exit;
 
+        $url = "http://ip.taobao.com/service/getIpInfo.php?ip=127.0.0.1";
 
-        $url = "http://ip.taobao.com/service/getIpInfo.php?ip={$ip}";
-        $ret = https_request($url);
-        $url = 'http://ip.taobao.com/service/getIpInfo.php';
         $post_data = [
             'ip'=>'119.96.149.112',
         ];
@@ -80,15 +79,7 @@ class HomeController extends Controller
     }
 
     public function log(){
-        $message = '这是一个测试日记';
-        Log::emergency($message);
-        Log::alert($message);
-        Log::critical($message);
-        Log::error($message);
-        Log::warning($message);
-        Log::notice($message);
-        Log::info($message);
-        Log::debug($message);
+       echo 1;exit;
 
     }
 
