@@ -32,3 +32,13 @@ $factory->define(App\Posts::class, function (Faker $faker) {
         'uid' => $faker->randomElement($ids),
     ];
 });
+
+$factory->define(App\Comment::class, function (Faker $faker) {
+    $ids =  \App\User::pluck('id')->all();
+    $idss =  \App\Posts::pluck('id')->all();
+    return [
+        'title' => $faker->sentence,
+        'uid' => $faker->randomElement($ids),
+        'posts_id' => $faker->randomElement($idss),
+    ];
+});

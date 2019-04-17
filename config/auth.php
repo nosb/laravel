@@ -36,20 +36,28 @@ return [
     */
 
     'guards' => [
-        /*'web' => [
+        'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],*/
+        ],
 
-        'web' => [
+      /*  'web' => [
             'driver' => 'jwt',
             'provider' => 'users',
-        ],
+        ],*/
 
         'api' => [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
+
+        //验证用户登录
+        'testLogin' => [
+            'web' => [
+                'driver' => 'session',
+                'provider' => 'testLogin',
+            ],
+        ]
 
     ],
 
@@ -80,6 +88,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'testLogin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
     ],
 
     /*

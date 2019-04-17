@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class myTest extends Command
 {
@@ -12,7 +13,7 @@ class myTest extends Command
      *
      * @var string
      */
-    protected $signature = 'my:test {id}';
+    protected $signature = 'test';
 
     /**
      * The console command description.
@@ -38,9 +39,19 @@ class myTest extends Command
      */
     public function handle()
     {
-        $userId = $this->argument('id');
+        /*$userId = $this->argument('id');
 
-        //dd(User::find($userId)->toArray());
-        dd($userId);
+        //dd(User::find(6)->toArray());
+        dd($userId);*/
+
+        //Log::channel('mytest')->error('1111111');
+
+        /**
+         *  $schedule->command('test')->everyMinute()->appendOutputTo($filePath);
+         * echo 出的内容可以输出到$filePath里面或者是记录到数据库 做日志管理
+         */
+        //$res = User::find(6,['id'])->toArray();
+        //$res = User::first(['id'])->toArray();
+        //echo json_encode($res).PHP_EOL;
     }
 }

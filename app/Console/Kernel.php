@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Console\Commands\myTest;
+use App\Console\Commands\order;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Log;
@@ -14,7 +16,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        myTest::class,
+        order::class,
     ];
 
     /**
@@ -27,11 +30,14 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $filePath = 'test.txt';
+
         //$schedule->command('route:list')->everyMinute()->sendOutputTo($filePath);
        /* $schedule->call(function (){
             Log::channel('mytest')->error(time());
         })->everyMinute();*/
+        $filePath = 'test.txt';
+        //$schedule->command('test')->everyMinute()->appendOutputTo($filePath);
+        //$schedule->command('sync:order 1')->everyMinute()->appendOutputTo($filePath);
     }
 
     /**

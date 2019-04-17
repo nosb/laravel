@@ -2,35 +2,84 @@
 
 namespace App;
 
-use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
+
+use Illuminate\Database\Eloquent\Model;
+/*use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Notifications\Notifiable;*/
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable
 {
-    use Notifiable;
 
-    // Rest omitted for brevity
 
 
     protected $guarded = [];
-    /**
-     * Get the identifier that will be stored in the subject claim of the JWT.
-     *
-     * @return mixed
-     */
+
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
+
+/*    public function ssss()
+    {
+        return $this->hasMany('App\Posts','uid','id');
+    }
+
+
+    public function test(){
+        return 1;
+    }*/
+
+}
+
+/*class User extends Authenticatable implements JWTSubject
+{
+    use Notifiable;
+
+
+
+    protected $guarded = [];
+
     public function getJWTIdentifier()
     {
         return $this->getKey();
     }
 
-    /**
-     * Return a key value array, containing any custom claims to be added to the JWT.
-     *
-     * @return array
-     */
+
     public function getJWTCustomClaims()
     {
         return [];
     }
-}
+
+
+
+
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
+
+
+    //一对多
+    public function Posts()
+    {
+        return $this->hasMany('App\Posts','uid');
+    }
+
+
+    public function getEmailAttribute($value)
+    {
+
+        return ucfirst($value);
+    }
+
+
+
+    public function getNameAttribute($value)
+    {
+
+        return strtolower($value);
+    }
+
+
+}*/

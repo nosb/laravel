@@ -3,9 +3,12 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\Debug\Exception\FatalThrowableError;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Illuminate\Auth\AuthenticationException;
+
 
 class Handler extends ExceptionHandler
 {
@@ -15,7 +18,8 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+
+        //FatalThrowableError::class,
     ];
 
     /**
@@ -49,8 +53,22 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
 
+        /*if($exception instanceof ModelNotFoundException){
+            return response()->json(['id'=>1]);
+        }*/
+
+
+
         return parent::render($request, $exception);
     }
 
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+
+        return $request->expectsJson()
+            ? response()->json(['message' => $exception->getMessage()], 401)
+            : redirect()->guest(route('login'));
+    }
 
 }

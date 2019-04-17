@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\FacadesServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
 
 
         /*
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'OpRedis'=>App\Facades\Redis\Facade\Redis::class,
         'Test'=>App\Facades\Test\Facade\Test::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
 
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,

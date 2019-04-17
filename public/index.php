@@ -7,6 +7,11 @@
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
+/*header('Access-Control-Allow-Origin: *');
+header('Access-Control-Max-Age: 86400');
+header('Access-Control-Allow-Headers:*');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE, PATCH');*/
+
 define('LARAVEL_START', microtime(true));
 
 /*

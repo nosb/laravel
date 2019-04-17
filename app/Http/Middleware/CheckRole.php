@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Filesystem\Cache;
 
+
 class CheckRole
 {
     /**
@@ -16,16 +17,25 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        echo 1;exit;
-       // $request->session()->put('name','111111');
-      //  session(['test'=>'1111111']);
-        return $next($request);
+
+
+
+
+
+        $response = $next($request);
+
+        $response->header('Access-Control-Allow-Origin', '*');
+        //$response->header('Cache-Control', 'max-age=20,public');
+        $response->header('Access-Control-Allow-Headers', '*');
+        $response->header('Access-Control-Expose-Headers', 'Authorization, authenticated');
+        $response->header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, OPTIONS');
+        $response->header('Access-Control-Allow-Credentials', 'true');
+        $response->header('Etag','11111111');
+      //  $response->header('yf', $request->header('If-None-Match'));
+        return $response;
+
     }
 
 
-    public function terminate($request, $response)
-    {
-        $request->session()->put('name','111111');
-    }
 
 }
