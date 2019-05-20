@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         DB::listen(function ($query) {
             echo $query->sql.PHP_EOL; //sql语句
            // var_dump($query->bindings); //绑定的参数
-           // echo  $query->time; // 运行的时间
+            echo  $query->time; // 运行的时间
         });
     }
 
