@@ -12,6 +12,7 @@ class IndexController extends Controller
 {
     public function index(){
 
+        dd('master');
         //Log::channel('mytest')->error(222);
         /*$res = User::updateOrCreate(
             ['name' => '1'],
