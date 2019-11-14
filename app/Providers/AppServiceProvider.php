@@ -16,12 +16,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        //数据库监听
+       /* //数据库监听
         DB::listen(function ($query) {
             echo $query->sql.PHP_EOL; //sql语句
            // var_dump($query->bindings); //绑定的参数
             echo  $query->time; // 运行的时间
-        });
+        });*/
     }
 
     /**

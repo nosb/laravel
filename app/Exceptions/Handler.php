@@ -8,6 +8,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\Debug\Exception\FatalThrowableError;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Illuminate\Auth\AuthenticationException;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 
 class Handler extends ExceptionHandler
@@ -56,8 +57,6 @@ class Handler extends ExceptionHandler
         /*if($exception instanceof ModelNotFoundException){
             return response()->json(['id'=>1]);
         }*/
-
-
 
         return parent::render($request, $exception);
     }

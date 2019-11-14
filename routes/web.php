@@ -1,5 +1,7 @@
 <?php
 Route::get('/', 'IndexController@index')->middleware('role');
+Route::get('s', 'IndexController@webSocket')->middleware('role');
+Route::get('test', 'TestController@index')->middleware('role');
 //Route::get('user', 'UserController@index');
 /*Route::get('login', 'LoginController@index');
 Route::group(['middleware' => ['web','auth']], function(){
